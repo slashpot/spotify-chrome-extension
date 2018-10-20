@@ -7,7 +7,7 @@ class Login extends Component {
             response_type: "code",
             client_id: "416fc494992c4ffeb5003c0b50b9d886",
             scope: "user-read-playback-state user-read-currently-playing user-modify-playback-state",
-            redirect_uri: 'http://localhost:3000'
+            redirect_uri: 'http://localhost:3001'
         };
 
         window.location = "https://accounts.spotify.com/authorize?" + stringify(params);

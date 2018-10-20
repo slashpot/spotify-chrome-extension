@@ -1,10 +1,6 @@
-const express = require('express');
-const helment = require('helmet');
+require('babel-register')({
+    presets: [ 'env' ]
+})
 
-const app = express();
-const port = 3001;
-
-app.use(helment());
-app.get('/', (req, res) => res.send('Hello World!'))
-
-app.listen(port, () => console.log(`server is listening on port ${port}`))
+// Import the rest of our application.
+module.exports = require('./server.js')
