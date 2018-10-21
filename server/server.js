@@ -13,17 +13,16 @@ app.get('/', (req, res) => {
         method: 'post',
         url: 'https://accounts.spotify.com/api/token',
         params: {
-            client_id: config.client_id,
-            client_secret: config.client_secret,
             code: req.query.code,
             grant_type: 'authorization_code',
             redirect_uri: config.redirect_uri
         },
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': 'Basic ' + (new Buffer(config.client_id + ':' + config.client_secret).toString('base64'))
         }
     };
-    axios(apiRequest).then(response=>res.json(response.status,response.data))
+    axios(apiRequest).then(response=>res.json(response.data))
     .catch(err=>res.json(err.response.status,err.response.data));
 })
 
