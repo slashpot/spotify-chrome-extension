@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Route } from 'react-router-dom';
+import {BrowserRouter, Route}from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 import Login from './components/Login';
 
 ReactDOM.render(
-    <HashRouter>
+    <BrowserRouter>
         <div>
             <Route path="/login" component={Login} />
         </div>
-    </HashRouter>,
+    </BrowserRouter>,
     document.getElementById('root'));
 registerServiceWorker();
