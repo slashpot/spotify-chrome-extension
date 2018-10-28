@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
+import {withRouter}from 'react-router-dom';
 import {stringify} from '../util';
 
 class Login extends Component {
+    constructor(props){
+        super(props);
+        this.openLoginPage=this.openLoginPage.bind(this);
+    }
     openLoginPage() {
         const params = {
             response_type: "code",
@@ -10,6 +15,7 @@ class Login extends Component {
             redirect_uri: 'http://localhost:3001'
         };
         window.open("https://accounts.spotify.com/authorize?" + stringify(params));
+        this.props.history.push('/authorize');
     }
 
     render() {
@@ -22,4 +28,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);
