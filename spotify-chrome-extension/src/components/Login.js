@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {stringify} from '../function';
+import {stringify} from '../util';
 
 class Login extends Component {
     openLoginPage() {
