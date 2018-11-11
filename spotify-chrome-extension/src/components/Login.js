@@ -8,6 +8,7 @@ class Login extends Component {
         this.openLoginPage = this.openLoginPage.bind(this);
     }
     setAuthorizePage() {
+        localStorage.setItem("page","Authorize");
         this.props.handler("Authorize");
     }
     openLoginPage() {

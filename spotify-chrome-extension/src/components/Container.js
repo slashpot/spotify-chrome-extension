@@ -3,11 +3,11 @@ import { constant } from '../helper/constant';
 import Login from './Login';
 import Authorize from './Authorize';
 
-
 class Container extends Component {
     constructor(props) {
         super(props);
-        this.state = { page: constant.LOGIN };
+        let page = localStorage.getItem('page');
+        this.state = { page: page ? page : 'Login' };
         this.getPage = this.getPage.bind(this);
         this.setPageHandler = this.setPageHandler.bind(this);
     }
