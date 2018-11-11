@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import {withRouter}from 'react-router-dom';
-import {stringify} from '../util';
+import { stringify } from '../helper/util';
 
 class Login extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.openLoginPage=this.openLoginPage.bind(this);
+        this.setAuthorizePage = this.setAuthorizePage.bind(this);
+        this.openLoginPage = this.openLoginPage.bind(this);
+    }
+    setAuthorizePage() {
+        this.props.handler("Authorize");
     }
     openLoginPage() {
         const params = {
@@ -14,8 +17,7 @@ class Login extends Component {
             scope: "user-read-playback-state user-read-currently-playing user-modify-playback-state",
             redirect_uri: 'http://localhost:3001'
         };
-        window.open("https://accounts.spotify.com/authorize?" + stringify(params));
-        this.props.history.push('/authorize');
+        this.setAuthorizePage();
     }
 
     render() {
@@ -28,4 +30,4 @@ class Login extends Component {
     }
 }
 
-export default withRouter(Login);
+export default Login;
