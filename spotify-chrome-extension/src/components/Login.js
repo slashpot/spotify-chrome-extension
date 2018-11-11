@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { stringify } from '../helper/util';
+import { constant } from '../helper/constant';
 
 class Login extends Component {
     constructor(props) {
@@ -8,8 +9,8 @@ class Login extends Component {
         this.openLoginPage = this.openLoginPage.bind(this);
     }
     setAuthorizePage() {
-        localStorage.setItem("page","Authorize");
-        this.props.handler("Authorize");
+        localStorage.setItem("page",constant.AUTH);
+        this.props.handler(constant.AUTH);
     }
     openLoginPage() {
         const params = {
@@ -18,6 +19,7 @@ class Login extends Component {
             scope: "user-read-playback-state user-read-currently-playing user-modify-playback-state",
             redirect_uri: 'http://localhost:3001'
         };
+        window.open("https://accounts.spotify.com/authorize?" + stringify(params));
         this.setAuthorizePage();
     }
 

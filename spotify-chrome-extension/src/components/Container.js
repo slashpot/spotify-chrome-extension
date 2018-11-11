@@ -7,7 +7,7 @@ class Container extends Component {
     constructor(props) {
         super(props);
         let page = localStorage.getItem('page');
-        this.state = { page: page ? page : 'Login' };
+        this.state = { page: page ? page : constant.LOGIN };
         this.getPage = this.getPage.bind(this);
         this.setPageHandler = this.setPageHandler.bind(this);
     }
