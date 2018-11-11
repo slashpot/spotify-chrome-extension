@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { constant } from '../helper/constant';
+import { page } from '../helper/constant';
 import Login from './Login';
-import Authorize from './Authorize';
+import Authorize from './Authorize/AuthorizeContainer';
 
 class Container extends Component {
     constructor(props) {
         super(props);
-        let page = localStorage.getItem('page');
-        this.state = { page: page ? page : constant.LOGIN };
+        let pageName = localStorage.getItem('page');
+        this.state = { page: pageName ? pageName : page.LOGIN };
         this.getPage = this.getPage.bind(this);
         this.setPageHandler = this.setPageHandler.bind(this);
     }
@@ -20,9 +20,7 @@ class Container extends Component {
     }
 
     setPageHandler(page) {
-        this.setState({
-            page: page
-        });
+        this.setState({ page: page });
     }
 
     render() {
