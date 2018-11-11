@@ -8,7 +8,7 @@ import Authorize from './components/Authorize';
 ReactDOM.render(
     <BrowserRouter>
         <div>
-            <Route path="/login" component={Login} />
+            <Route exact path="/" component={Login} />
             <Route path="/authorize" component={Authorize} />
         </div>
     </BrowserRouter>,
