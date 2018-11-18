@@ -1,12 +1,15 @@
 import { connect } from 'react-redux';
-import { setRefreshToken } from '../../actions';
+import { setRefreshToken, setAccessToken } from '../../actions';
 import Authorize from './Authorize';
 
 export default connect(
-    (state)=>({}),
+    (state) => ({}),
     (dispatch) => ({
-        onSetRefreshToken: (token) => (
-            dispatch(setRefreshToken({token: token}))
-        )
+        setRefreshToken: (token) => (
+            dispatch(setRefreshToken({ token: token }))
+        ),
+        setAccessToken: (token) => {
+            dispatch(setAccessToken({ token: token }))
+        }
     })
 )(Authorize);

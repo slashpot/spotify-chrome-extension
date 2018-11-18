@@ -24,7 +24,8 @@ class Authorize extends Component {
     }
     handleApiRequest(data){
         if (data.access_token) {
-            this.props.onSetRefreshToken(this.state.token);
+            this.props.setAccessToken(data.access_token);
+            this.props.setRefreshToken(this.state.token);
         }
         else {
             console.log(data);
