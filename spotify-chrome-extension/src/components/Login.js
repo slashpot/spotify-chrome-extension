@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { stringify } from '../helper/util';
+import { stringify, setPage } from '../helper/util';
 import { page } from '../helper/constant';
 
 class Login extends Component {
@@ -9,7 +9,7 @@ class Login extends Component {
         this.openLoginPage = this.openLoginPage.bind(this);
     }
     setAuthorizePage() {
-        localStorage.setItem("page",page.AUTH);
+        setPage(page.AUTH);
         this.props.handler(page.AUTH);
     }
     openLoginPage() {
